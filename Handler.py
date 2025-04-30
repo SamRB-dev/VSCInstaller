@@ -38,22 +38,6 @@ class Handler:
                         "✅ [bold green]dev tools[/bold green] installed successfully"
                     )
 
-                # if self.__utility.is_yay_installed():
-                #     console.print("✅ [bold green]yay[/bold green] is installed")
-
-                # else:
-                # console.print("❌ [bold red]yay[/bold red] is not installed")
-                # console.print(
-                #     ":arrow_heading_down: Installing [bold green]yay[/bold green]"
-                # )
-                # self.__process_status_code = subprocess.run(
-                #     ["sudo", "pacman", "-Syu", "yay"], check=True
-                # ).returncode
-                # if self.__process_status_code == 0:
-                #     console.print(
-                #         "✅ [bold green]yay[/bold green] installed successfully"
-                #     )
-
                 if self.__utility.is_git_installed():
                     console.print("✅ [bold green]git[/bold green] is installed")
                 else:
@@ -99,11 +83,11 @@ class Handler:
             console.print(
                 f":information: Current Directory: [bold green]{self.__utility.get_current_directory()}[/bold green]"
             )
-            if self.__process_status_code == 0:
-                os.chdir("visual-studio-code-bin")
-                self.__process_status_code = subprocess.run(
-                    ["makepkg", "-sri"], check=True
-                )
+            
+            os.chdir("visual-studio-code-bin")
+            self.__process_status_code = subprocess.run(
+                ["makepkg", "-sri"], check=True
+            )
 
         except subprocess.CalledProcessError as e:
             console.print(f"❌ [bold red]Error:[/bold red] {e}")
@@ -111,10 +95,9 @@ class Handler:
             console.print(f"❌ [bold red]Error:[/bold red] {e}")
 
         finally:
-            if self.__process_status_code == 0:
-                console.print(
-                    ":arrow_heading_down: Cleaning up [bold green]visual-studio-code-bin[/bold green]"
-                )
-                os.chdir(f"{self.__utility.get_home_directory()}/Downloads")
-                shutil.rmtree("visual-studio-code-bin")
-                console.print("✅ [bold green]Done[/bold green]")
+            console.print(
+                ":arrow_heading_down: Cleaning up [bold green]visual-studio-code-bin[/bold green]"
+            )
+            os.chdir(f"{self.__utility.get_home_directory()}/Downloads")
+            shutil.rmtree("visual-studio-code-bin")
+            console.print("✅ [bold green]Done[/bold green]")

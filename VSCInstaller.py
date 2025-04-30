@@ -20,7 +20,7 @@ from Handler import Handler
 # Main function
 def main():
     handler = Handler()
-    # handler.check_requirements()
+    handler.check_requirements()
     handler.install_vsc()
 
 
