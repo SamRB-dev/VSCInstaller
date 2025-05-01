@@ -17,4 +17,4 @@ python VSCInstaller.py
 ```
 
 ## Demo
-![](https://raw.githubusercontent.com/SamRB-dev/VSCInstaller/refs/heads/main/Demo.gif)
+![](https://raw.githubusercontent.com/SamRB-dev/VSCInstaller/refs/heads/main/demo.gif)
